@@ -8,10 +8,21 @@
 import Foundation
 
 class MainViewViewModel: ObservableObject {
+    
     @Published var screen: Screens = .apod
     @Published var showDatePicker = false
     @Published var back: Back = .back
     @Published var date = Date()
+    @Published var isShowingLounh = true
+    @Published var isDown = false
+    
+    func animateLounch() {
+        isDown = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.isShowingLounh = false
+        }
+    }
+    
 }
 
 enum Screens: String {

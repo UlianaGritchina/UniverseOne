@@ -9,12 +9,15 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject var vm = MainViewViewModel()
+    @State var isShowingLounh = true
+    @State var isDown = false
     var body: some View {
         ZStack {
             BackView(back: vm.back)
             
             selectedScreen
-                .frame(height: UIScreen.main.bounds.height / 1.2)
+                .frame(width: UIScreen.main.bounds.width,
+                       height: UIScreen.main.bounds.height / 1.2)
             
             VStack {
                 TitleView(title: vm.screen.rawValue,
@@ -27,8 +30,12 @@ struct MainView: View {
                 CustomTabBarView(screen: $vm.screen)
                     .padding(.bottom, -UIScreen.main.bounds.height / 50)
             }
+            
+            LogoView(isShowingLounh: vm.isShowingLounh, isDown: vm.isDown)
+            
         }
         .preferredColorScheme(.dark)
+        .onAppear { vm.animateLounch() }
     }
     
 }
@@ -58,5 +65,37 @@ extension MainView {
 }
 
 
-
+struct LogoView: View {
+    let isShowingLounh: Bool
+    let isDown: Bool
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 20)
+                .foregroundColor(.black)
+                .ignoresSafeArea()
+                .opacity(isShowingLounh ? 1 : 0)
+                .animation(.default, value: isShowingLounh)
+            
+            VStack(spacing: 0) {
+                Text("🛸")
+                    .font(.system(size: UIScreen.main.bounds.height / 10))
+                LinearGradient(colors: [.blue,.green],
+                               startPoint: .leading,
+                               endPoint: .trailing)
+                    .mask(
+                        Text("Universe One")
+                            .bold()
+                            .font(.system(size: UIScreen.main.bounds.height / 25))
+                    )
+                    .frame(height: UIScreen.main.bounds.height / 20)
+            }
+            .opacity(isShowingLounh ? 1 : 0)
+            .rotationEffect(Angle(degrees: isShowingLounh ? 0 : 500))
+            .animation(.default, value: isShowingLounh)
+            .offset(x: 0, y: isDown ? 0 : -UIScreen.main.bounds.height)
+            .animation(.spring(), value: isDown)
+            
+        }
+    }
+}
 
