@@ -9,8 +9,6 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject var vm = MainViewViewModel()
-    @State var isShowingLounh = true
-    @State var isDown = false
     var body: some View {
         ZStack {
             BackView(back: vm.back)
@@ -64,7 +62,6 @@ extension MainView {
     }
 }
 
-
 struct LogoView: View {
     let isShowingLounh: Bool
     let isDown: Bool
@@ -78,14 +75,18 @@ struct LogoView: View {
             
             VStack(spacing: 0) {
                 Text("🛸")
-                    .font(.system(size: UIScreen.main.bounds.height / 10))
+                    .font(.system(size: isShowingLounh
+                                  ? UIScreen.main.bounds.height / 10
+                                  : 0))
                 LinearGradient(colors: [.blue,.green],
                                startPoint: .leading,
                                endPoint: .trailing)
                     .mask(
                         Text("Universe One")
                             .bold()
-                            .font(.system(size: UIScreen.main.bounds.height / 25))
+                            .font(.system(size: isShowingLounh
+                                          ? UIScreen.main.bounds.height / 25
+                                          : 0))
                     )
                     .frame(height: UIScreen.main.bounds.height / 20)
             }
@@ -93,8 +94,11 @@ struct LogoView: View {
             .rotationEffect(Angle(degrees: isShowingLounh ? 0 : 500))
             .animation(.default, value: isShowingLounh)
             .offset(x: 0, y: isDown ? 0 : -UIScreen.main.bounds.height)
-            .animation(.spring(), value: isDown)
-            
+            .animation(
+                .spring(response: 0.9,
+                        dampingFraction: 0.6,
+                        blendDuration: 1),
+                value: isDown)
         }
     }
 }
