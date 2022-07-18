@@ -20,6 +20,7 @@ struct ApodView: View {
             MainImageView(infoAction: {viewModel.showInfo()},
                           saveAction: {
                 viewModel.saveApod(viewModel.astronomyImage)
+                Global.shared.favorites = CoreDataManager.shered.fetchApods()
             },
                           stringUrl: viewModel.astronomyImage.url ?? "",
                           mediaType: viewModel.astronomyImage.media_type ?? "")

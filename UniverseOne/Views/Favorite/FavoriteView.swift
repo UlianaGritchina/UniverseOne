@@ -13,7 +13,7 @@ protocol ImageRowDelegate {
 
 struct FavoriteView: View {
     @State var viewModel = FavoriteViewViewModel()
-    @State var apods = CoreDataManager.shered.fetchApods()
+    @State var apods = Global.shared.favorites
     var body: some View {
         ScrollView(showsIndicators: false) {
             Text("").padding()

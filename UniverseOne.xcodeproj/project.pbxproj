@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E1946B8288596AC00816A62 /* FoundApodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1946B7288596AC00816A62 /* FoundApodView.swift */; };
 		0E62794928780E1600A3AD6C /* UniverseOneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E62794828780E1600A3AD6C /* UniverseOneApp.swift */; };
 		0E62794B28780E1600A3AD6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E62794A28780E1600A3AD6C /* ContentView.swift */; };
 		0E62794D28780E1900A3AD6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E62794C28780E1900A3AD6C /* Assets.xcassets */; };
@@ -19,7 +20,6 @@
 		0E6279712878100F00A3AD6C /* ApodContentViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E62796F2878100F00A3AD6C /* ApodContentViewViewModel.swift */; };
 		0E6279722878100F00A3AD6C /* ApodContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6279702878100F00A3AD6C /* ApodContentView.swift */; };
 		0E6279742878101600A3AD6C /* ApodContentViweExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6279732878101600A3AD6C /* ApodContentViweExtension.swift */; };
-		0E6279792878102700A3AD6C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6279752878102700A3AD6C /* DetailView.swift */; };
 		0E62797A2878102700A3AD6C /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6279762878102700A3AD6C /* FavoriteView.swift */; };
 		0E62797B2878102700A3AD6C /* FavoriteImageRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6279772878102700A3AD6C /* FavoriteImageRowView.swift */; };
 		0E62797C2878102700A3AD6C /* FavoriteViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6279782878102700A3AD6C /* FavoriteViewViewModel.swift */; };
@@ -47,10 +47,12 @@
 		0E6279AC2878117300A3AD6C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6279A72878117300A3AD6C /* NetworkManager.swift */; };
 		0E6279AD2878117300A3AD6C /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6279A82878117300A3AD6C /* ShareView.swift */; };
 		0E6279AF2878117300A3AD6C /* UserDefoltsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6279AA2878117300A3AD6C /* UserDefoltsDataManager.swift */; };
+		0E8A19932879AF1600F189F6 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8A19922879AF1600F189F6 /* DetailView.swift */; };
 		0ECDD1732878659C00A3A125 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ECDD1722878659C00A3A125 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E1946B7288596AC00816A62 /* FoundApodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundApodView.swift; sourceTree = "<group>"; };
 		0E62794528780E1600A3AD6C /* UniverseOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniverseOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E62794828780E1600A3AD6C /* UniverseOneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniverseOneApp.swift; sourceTree = "<group>"; };
 		0E62794A28780E1600A3AD6C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,7 +66,6 @@
 		0E62796F2878100F00A3AD6C /* ApodContentViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApodContentViewViewModel.swift; sourceTree = "<group>"; };
 		0E6279702878100F00A3AD6C /* ApodContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApodContentView.swift; sourceTree = "<group>"; };
 		0E6279732878101600A3AD6C /* ApodContentViweExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApodContentViweExtension.swift; sourceTree = "<group>"; };
-		0E6279752878102700A3AD6C /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		0E6279762878102700A3AD6C /* FavoriteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		0E6279772878102700A3AD6C /* FavoriteImageRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteImageRowView.swift; sourceTree = "<group>"; };
 		0E6279782878102700A3AD6C /* FavoriteViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewViewModel.swift; sourceTree = "<group>"; };
@@ -92,6 +93,7 @@
 		0E6279A72878117300A3AD6C /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0E6279A82878117300A3AD6C /* ShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		0E6279AA2878117300A3AD6C /* UserDefoltsDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefoltsDataManager.swift; sourceTree = "<group>"; };
+		0E8A19922879AF1600F189F6 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		0ECDD1722878659C00A3A125 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E1946B9288596B200816A62 /* FoundApod */ = {
+			isa = PBXGroup;
+			children = (
+				0E1946B7288596AC00816A62 /* FoundApodView.swift */,
+			);
+			path = FoundApod;
+			sourceTree = "<group>";
+		};
 		0E62793C28780E1600A3AD6C = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +174,7 @@
 				0E62796428780F6A00A3AD6C /* Favorite */,
 				0E62796528780FA200A3AD6C /* Random */,
 				0E62796628780FBB00A3AD6C /* Settings */,
+				0E1946B9288596B200816A62 /* FoundApod */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -176,6 +187,7 @@
 				0E6279912878105500A3AD6C /* BackView.swift */,
 				0E62798E2878105500A3AD6C /* CircleButtonView.swift */,
 				0E62798C2878105500A3AD6C /* CustomTabBarView.swift */,
+				0E8A19922879AF1600F189F6 /* DetailView.swift */,
 				0E62798D2878105500A3AD6C /* DatePickerView.swift */,
 				0E62798B2878105500A3AD6C /* GradientButtonView.swift */,
 				0E6279942878105600A3AD6C /* imageButtonView.swift */,
@@ -248,9 +260,8 @@
 		0E62796428780F6A00A3AD6C /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
-				0E6279752878102700A3AD6C /* DetailView.swift */,
-				0E6279772878102700A3AD6C /* FavoriteImageRowView.swift */,
 				0E6279762878102700A3AD6C /* FavoriteView.swift */,
+				0E6279772878102700A3AD6C /* FavoriteImageRowView.swift */,
 				0E6279782878102700A3AD6C /* FavoriteViewViewModel.swift */,
 			);
 			path = Favorite;
@@ -348,11 +359,11 @@
 			files = (
 				0E6279AC2878117300A3AD6C /* NetworkManager.swift in Sources */,
 				0E62796E2878100500A3AD6C /* ApodView.swift in Sources */,
+				0E1946B8288596AC00816A62 /* FoundApodView.swift in Sources */,
 				0E6279982878105600A3AD6C /* DatePickerView.swift in Sources */,
 				0E6279842878103E00A3AD6C /* WallpaperView.swift in Sources */,
 				0E62797C2878102700A3AD6C /* FavoriteViewViewModel.swift in Sources */,
 				0E6279972878105600A3AD6C /* CustomTabBarView.swift in Sources */,
-				0E6279792878102700A3AD6C /* DetailView.swift in Sources */,
 				0E6279712878100F00A3AD6C /* ApodContentViewViewModel.swift in Sources */,
 				0E62798A2878104900A3AD6C /* ImageRowView.swift in Sources */,
 				0E6279862878103E00A3AD6C /* SettingsView.swift in Sources */,
@@ -382,6 +393,7 @@
 				0E6279AF2878117300A3AD6C /* UserDefoltsDataManager.swift in Sources */,
 				0E62799E2878105600A3AD6C /* ApodImageView.swift in Sources */,
 				0E6279742878101600A3AD6C /* ApodContentViweExtension.swift in Sources */,
+				0E8A19932879AF1600F189F6 /* DetailView.swift in Sources */,
 				0E6279AB2878117300A3AD6C /* CoreDataManager.swift in Sources */,
 				0E62799D2878105600A3AD6C /* TitleView.swift in Sources */,
 			);

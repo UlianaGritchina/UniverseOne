@@ -19,5 +19,6 @@ class FavoriteViewViewModel: ObservableObject {
     func saveApod(_ apod: Apod) {
         CoreDataManager.shered.addApod(apod)
     }
+    
 }
 

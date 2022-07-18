@@ -10,6 +10,7 @@ import SwiftUI
 struct TitleView: View {
     let mainHeight = UIScreen.main.bounds.height
     let mainWidth = UIScreen.main.bounds.width
+    @State private var isShowingFindApod = false
     let title: String
     let findAction: () -> Void
     let date: Date
@@ -42,19 +43,19 @@ struct TitleView: View {
                             .font(.system(size: mainHeight / 25))
                     }
                 )
-//            
-//            if title == "APOD" {
-//                HStack {
-//                    Spacer()
-//                    Button(action: findAction) {
-//                        Image(systemName: "magnifyingglass")
-//                            .font(.system(size: mainHeight / 25))
-//                    }
-//                }
-//                .padding()
-//            }
+                .frame(width: mainWidth - 20, height: mainHeight / 10)
         }
-        .frame(width: mainWidth - 20, height: mainHeight / 10)
+        
+        .onTapGesture {
+            if title == "APOD" {
+                isShowingFindApod = true
+            }
+        }
+        
+        .sheet(isPresented: $isShowingFindApod) {
+            FoundApodView()
+        }
+        
     }
 }
 
