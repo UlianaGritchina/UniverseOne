@@ -8,36 +8,26 @@
 import SwiftUI
 
 struct FoundApodView: View {
-    @State private var date = Date()
+    @StateObject var vm  = FindApodViewViewModel()
     var body: some View {
         ZStack {
-            BackView(back: .back)
             VStack {
-                Spacer()
-                ImageView(stringUrl: "https://apod.nasa.gov/apod/image/2207/Quintet_JwstHstEtcGendler_2413.jpg",
-                          mediaType: "image")
-                    .frame(width: UIScreen.main.bounds.width - 40,
-                           height: UIScreen.main.bounds.height / 3)
-                Spacer()
-                
-                DatePicker("",
-                           selection: $date,
-                           displayedComponents: [.date])
-                    .datePickerStyle(.graphical)
-                
-                Button(action: {}) {
-                    Text("Find")
-                        .bold()
-                        .foregroundColor(.white)
-                        .frame(width: UIScreen.main.bounds.width - 80,
-                               height: UIScreen.main.bounds.height / 20)
-                        .background(Color.blue .cornerRadius(10))
-                        .padding()
-                        
+                switch vm.imageState {
+                case .noImage: noImage
+                case .downloading: progress
+                case .image: imege
                 }
+                Spacer()
+                datePicker
+                findButton
             }
-            .preferredColorScheme(.dark)
         }
+        .onAppear { vm.findImage() }
+        
+        .sheet(isPresented: $vm.isShowingDetailView) {
+            ShareView(imageData: Global.shared.imageData!, isShowingShereView: $vm.isShowingDetailView)
+        }
+        
     }
 }
 
@@ -45,4 +35,58 @@ struct FoundApodView_Previews: PreviewProvider {
     static var previews: some View {
         FoundApodView()
     }
+}
+
+extension FoundApodView {
+    
+    var datePicker: some View {
+        DatePicker("",
+                   selection: $vm.date,
+                   displayedComponents: [.date])
+            .datePickerStyle(.graphical)
+    }
+    
+    var findButton: some View {
+        Button(action: {vm.findImage()}) {
+            Text("Find")
+                .bold()
+                .foregroundColor(.white)
+                .frame(width: UIScreen.main.bounds.width - 80,
+                       height: UIScreen.main.bounds.height / 20)
+                .background(Color.blue .cornerRadius(10))
+                .padding()
+            
+        }
+    }
+    
+    var noImage: some View {
+        RoundedRectangle(cornerRadius: 10)
+            .frame(width: UIScreen.main.bounds.width - 40,
+                   height: UIScreen.main.bounds.height / 3)
+            .opacity(0.5)
+    }
+    
+    var progress: some View {
+        VStack {
+            Spacer()
+            ProgressView()
+            Spacer()
+        }
+    }
+    
+    var imege: some View {
+        VStack {
+            if let data = vm.imageData {
+                Image(uiImage: UIImage(data: data)!)
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(10)
+                    .frame(width: UIScreen.main.bounds.width - 40,
+                           height: UIScreen.main.bounds.height / 3)
+                    .padding()
+                
+            }
+        }
+    }
+    
 }
