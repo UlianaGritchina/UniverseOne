@@ -11,7 +11,8 @@ class FindApodViewViewModel: ObservableObject {
     
     @Published var date = Date()
     @Published var imageState: ImageState = .noImage
-    @Published var imageData: Data = Global.shared.imageData!
+    @Published var imageData: Data? = nil
+    @Published var isShowDetail = false
     @Published var isShowingDetailView = false
     @Published var astronomyImage: AstronomyImage = AstronomyImage(title: "",
                                                                date: "",

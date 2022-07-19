@@ -15,17 +15,43 @@ struct FoundApodView: View {
                 switch vm.imageState {
                 case .noImage: noImage
                 case .downloading: progress
-                case .image: imege
+                case .image: image
                 }
                 Spacer()
-                datePicker
-                findButton
+                datePicker.opacity(vm.isShowDetail ? 0.5 : 1)
+                findButton.opacity(vm.isShowDetail ? 0.5 : 1)
             }
+            
+            VStack {
+                Spacer()
+                Rectangle()
+                    .opacity(0)
+                    .background(.ultraThinMaterial)
+                    .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height / 2)
+                    .cornerRadius(20)
+                    .overlay(
+                        ScrollView(showsIndicators: false) {
+                            VStack {
+                                Text(vm.astronomyImage.title ?? "").bold()
+                                Text(vm.astronomyImage.explanation ?? "")
+                            }
+                            .padding()
+                        }
+                    )
+                    .opacity(vm.isShowDetail ? 1 : 0)
+            }
+            .padding()
+            .onAppear { vm.findImage() }
+            .onTapGesture {
+                withAnimation {
+                    vm.isShowDetail.toggle()
+                }
         }
-        .onAppear { vm.findImage() }
-        
-        .sheet(isPresented: $vm.isShowingDetailView) {
-            ShareView(imageData: Global.shared.imageData!, isShowingShereView: $vm.isShowingDetailView)
+            
+            .sheet(isPresented: $vm.isShowingDetailView) {
+                ShareView(imageData: Global.shared.imageData!, isShowingShereView: $vm.isShowingDetailView)
+            }
+            .preferredColorScheme(.dark)
         }
         
     }
@@ -74,7 +100,7 @@ extension FoundApodView {
         }
     }
     
-    var imege: some View {
+    var image: some View {
         VStack {
             if let data = vm.imageData {
                 Image(uiImage: UIImage(data: data)!)
@@ -84,7 +110,11 @@ extension FoundApodView {
                     .frame(width: UIScreen.main.bounds.width - 40,
                            height: UIScreen.main.bounds.height / 3)
                     .padding()
-                
+                    .onTapGesture {
+                        withAnimation {
+                            vm.isShowDetail.toggle()
+                        }
+                    }
             }
         }
     }
