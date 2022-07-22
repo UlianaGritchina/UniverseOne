@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E1946B8288596AC00816A62 /* FoundApodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1946B7288596AC00816A62 /* FoundApodView.swift */; };
+		0E1946B8288596AC00816A62 /* FindApodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1946B7288596AC00816A62 /* FindApodView.swift */; };
 		0E4494FF2886DAC400209B4B /* FindApodViewViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4494FE2886DAC400209B4B /* FindApodViewViewMode.swift */; };
 		0E62794928780E1600A3AD6C /* UniverseOneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E62794828780E1600A3AD6C /* UniverseOneApp.swift */; };
 		0E62794B28780E1600A3AD6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E62794A28780E1600A3AD6C /* ContentView.swift */; };
@@ -53,7 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0E1946B7288596AC00816A62 /* FoundApodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundApodView.swift; sourceTree = "<group>"; };
+		0E1946B7288596AC00816A62 /* FindApodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindApodView.swift; sourceTree = "<group>"; };
 		0E4494FE2886DAC400209B4B /* FindApodViewViewMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindApodViewViewMode.swift; sourceTree = "<group>"; };
 		0E62794528780E1600A3AD6C /* UniverseOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniverseOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E62794828780E1600A3AD6C /* UniverseOneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniverseOneApp.swift; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				0E4494FE2886DAC400209B4B /* FindApodViewViewMode.swift */,
-				0E1946B7288596AC00816A62 /* FoundApodView.swift */,
+				0E1946B7288596AC00816A62 /* FindApodView.swift */,
 			);
 			path = FoundApod;
 			sourceTree = "<group>";
@@ -362,7 +362,7 @@
 			files = (
 				0E6279AC2878117300A3AD6C /* NetworkManager.swift in Sources */,
 				0E62796E2878100500A3AD6C /* ApodView.swift in Sources */,
-				0E1946B8288596AC00816A62 /* FoundApodView.swift in Sources */,
+				0E1946B8288596AC00816A62 /* FindApodView.swift in Sources */,
 				0E6279982878105600A3AD6C /* DatePickerView.swift in Sources */,
 				0E6279842878103E00A3AD6C /* WallpaperView.swift in Sources */,
 				0E4494FF2886DAC400209B4B /* FindApodViewViewMode.swift in Sources */,

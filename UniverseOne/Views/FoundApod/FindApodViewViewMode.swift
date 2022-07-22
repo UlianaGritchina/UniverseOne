@@ -10,7 +10,7 @@ import Foundation
 class FindApodViewViewModel: ObservableObject {
     
     @Published var date = Date()
-    @Published var imageState: ImageState = .noImage
+    @Published var imageState: ImageState = .downloading
     @Published var imageData: Data? = nil
     @Published var isShowDetail = false
     @Published var isShowingDetailView = false

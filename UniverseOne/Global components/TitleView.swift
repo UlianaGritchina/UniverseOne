@@ -53,7 +53,7 @@ struct TitleView: View {
         }
         
         .sheet(isPresented: $isShowingFindApod) {
-            FoundApodView()
+            FindApodView()
         }
         
     }

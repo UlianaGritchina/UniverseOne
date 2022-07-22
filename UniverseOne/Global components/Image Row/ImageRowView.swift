@@ -30,10 +30,6 @@ struct ImageRowView: View {
             if vm.isShowinInfo { Text(vm.apod.explanation ?? "") }
             
         }
-        .onAppear {
-            
-        }
-        
         .preferredColorScheme(.dark)
         .padding()
         .frame(width: width - 40)

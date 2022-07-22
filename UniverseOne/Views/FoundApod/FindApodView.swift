@@ -7,63 +7,42 @@
 
 import SwiftUI
 
-struct FoundApodView: View {
+struct FindApodView: View {
     @StateObject var vm  = FindApodViewViewModel()
     var body: some View {
         ZStack {
-            VStack {
-                switch vm.imageState {
-                case .noImage: noImage
-                case .downloading: progress
-                case .image: image
+            Color.black.ignoresSafeArea()
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    switch vm.imageState {
+                    case .noImage: noImage
+                    case .downloading: progress
+                    case .image: image
+                    }
+                    Spacer()
+                    datePicker.opacity(vm.isShowDetail ? 0.5 : 1)
+                    findButton.opacity(vm.isShowDetail ? 0.5 : 1)
                 }
-                Spacer()
-                datePicker.opacity(vm.isShowDetail ? 0.5 : 1)
-                findButton.opacity(vm.isShowDetail ? 0.5 : 1)
             }
-            
-            VStack {
-                Spacer()
-                Rectangle()
-                    .opacity(0)
-                    .background(.ultraThinMaterial)
-                    .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height / 2)
-                    .cornerRadius(20)
-                    .overlay(
-                        ScrollView(showsIndicators: false) {
-                            VStack {
-                                Text(vm.astronomyImage.title ?? "").bold()
-                                Text(vm.astronomyImage.explanation ?? "")
-                            }
-                            .padding()
-                        }
-                    )
-                    .opacity(vm.isShowDetail ? 1 : 0)
-            }
-            .padding()
-            .onAppear { vm.findImage() }
-            .onTapGesture {
-                withAnimation {
-                    vm.isShowDetail.toggle()
-                }
+            .animation(.default, value: vm.imageState)
         }
-            
-            .sheet(isPresented: $vm.isShowingDetailView) {
-                ShareView(imageData: Global.shared.imageData!, isShowingShereView: $vm.isShowingDetailView)
-            }
-            .preferredColorScheme(.dark)
+        .onAppear{ vm.findImage() }
+        .sheet(isPresented: $vm.isShowingDetailView) {
+            ShareView(imageData: Global.shared.imageData!, isShowingShereView: $vm.isShowingDetailView)
         }
-        
+        .preferredColorScheme(.dark)
     }
+    
 }
+
 
 struct FoundApodView_Previews: PreviewProvider {
     static var previews: some View {
-        FoundApodView()
+        FindApodView()
     }
 }
 
-extension FoundApodView {
+extension FindApodView {
     
     var datePicker: some View {
         DatePicker("",
@@ -94,9 +73,11 @@ extension FoundApodView {
     
     var progress: some View {
         VStack {
-            Spacer()
+           
             ProgressView()
-            Spacer()
+                .frame(width: UIScreen.main.bounds.width - 40,
+                       height: UIScreen.main.bounds.height / 3)
+           
         }
     }
     
@@ -109,12 +90,33 @@ extension FoundApodView {
                     .cornerRadius(10)
                     .frame(width: UIScreen.main.bounds.width - 40,
                            height: UIScreen.main.bounds.height / 3)
-                    .padding()
                     .onTapGesture {
                         withAnimation {
                             vm.isShowDetail.toggle()
                         }
                     }
+            }
+            
+            HStack {
+                Button(action: {
+                    withAnimation {
+                        vm.isShowDetail.toggle()
+                    }
+                }) {
+                    Image(systemName: "chevron.down")
+                        .rotationEffect(Angle(degrees: vm.isShowDetail ? 0 : -90))
+                }
+                Spacer()
+            }
+            .padding(.horizontal)
+            
+            if vm.isShowDetail {
+                VStack {
+                    Text(vm.astronomyImage.title ?? "")
+                        .bold()
+                    Text(vm.astronomyImage.explanation ?? "")
+                }
+                .padding(.horizontal)
             }
         }
     }
